@@ -1,0 +1,28 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Cyberpunk server background",
+      "imageUrl": "https://picsum.photos/seed/devlab-hero/1920/1080",
+      "imageHint": "cyberpunk server"
+    },
+    {
+      "id": "user-1",
+      "description": "Testimonial user 1",
+      "imageUrl": "https://picsum.photos/seed/user1/100/100",
+      "imageHint": "gamer avatar"
+    },
+    {
+      "id": "user-2",
+      "description": "Testimonial user 2",
+      "imageUrl": "https://picsum.photos/seed/user2/100/100",
+      "imageHint": "gamer avatar"
+    },
+    {
+      "id": "user-3",
+      "description": "Testimonial user 3",
+      "imageUrl": "https://picsum.photos/seed/user3/100/100",
+      "imageHint": "gamer avatar"
+    }
+  ]
+}
