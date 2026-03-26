@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -27,6 +28,7 @@ export function Header() {
     { name: "Hospedagem", href: "/hospedagem" },
     { name: "Serviços", href: "/servicos" },
     { name: "Diferenciais", href: "/diferenciais" },
+    { name: "Termos", href: "/termos" },
   ];
 
   return (
@@ -37,17 +39,22 @@ export function Header() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center neon-glow group-hover:scale-110 transition-transform">
-            <Rocket className="text-white w-6 h-6" />
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative w-12 h-12 group-hover:scale-110 transition-transform flex items-center justify-center">
+            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center neon-glow">
+               <Rocket className="text-white w-6 h-6" />
+            </div>
           </div>
-          <span className="text-2xl font-bold tracking-tighter font-headline text-white group-hover:text-primary transition-colors">
-            Dev<span className="text-primary">Lab</span>
-          </span>
+          <div className="flex flex-col leading-none">
+            <span className="text-xl font-black tracking-tighter font-headline text-white group-hover:text-primary transition-colors">
+              DEV<span className="text-primary">LAB</span>
+            </span>
+            <span className="text-[10px] font-bold text-muted-foreground tracking-[0.3em] uppercase">Studio</span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8 text-nowrap overflow-hidden">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -78,7 +85,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-background border-b border-white/10 p-6 flex flex-col gap-6 md:hidden animate-in slide-in-from-top duration-300">
+        <div className="absolute top-full left-0 right-0 bg-background border-b border-white/10 p-6 flex flex-col gap-6 md:hidden animate-in slide-in-from-top duration-300 overflow-y-auto max-h-[80vh]">
           {navLinks.map((link) => (
             <Link
               key={link.name}

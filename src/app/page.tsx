@@ -7,6 +7,9 @@ import { BriefGenerator } from "@/components/sections/BriefGenerator";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
 
+// Aumenta o tempo limite para o Vercel (máximo de 60s no plano Pro, 10s no Hobby)
+export const maxDuration = 60;
+
 export default function Home() {
   return (
     <>

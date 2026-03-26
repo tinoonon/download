@@ -19,10 +19,11 @@ export function BriefGenerator() {
     try {
       const result = await generateProjectBrief({ rawRequirements: input });
       setBrief(result);
-    } catch (error) {
+    } catch (error: any) {
+      console.error("Erro no Gerador de Briefing:", error);
       toast({
         title: "Erro ao gerar brief",
-        description: "Ocorreu um problema ao processar seu pedido. Tente novamente.",
+        description: error.message || "Ocorreu um problema ao processar seu pedido. Verifique as chaves de API.",
         variant: "destructive",
       });
     } finally {
@@ -51,8 +52,11 @@ URGÊNCIA: ${brief.urgency}
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 text-primary font-bold mb-4">
-            <Sparkles className="w-5 h-5" />
-            <span>Ferramenta IA</span>
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <Sparkles className="relative inline-flex w-3 h-3" />
+            </span>
+            <span>Inteligência Artificial</span>
           </div>
           <h2 className="text-4xl font-black font-headline tracking-tighter mb-4">
             Gerador de <span className="text-primary">Briefing</span>
@@ -66,12 +70,12 @@ URGÊNCIA: ${brief.urgency}
           <div className="space-y-4">
             <Textarea
               placeholder="Ex: Quero um sistema de roubo a banco onde o player precisa hackear um painel usando um minigame, e depois fugir com o dinheiro sujo. Preciso que seja para VRPEX..."
-              className="min-h-[150px] bg-white/5 border-white/10 focus:border-primary/50 text-white p-6 rounded-xl"
+              className="min-h-[150px] bg-white/5 border-white/10 focus:border-primary/50 text-white p-6 rounded-xl transition-all"
               value={input}
               onChange={(e) => setInput(e.target.value)}
             />
             <Button
-              className="w-full h-12 bg-primary font-bold neon-glow"
+              className="w-full h-12 bg-primary font-bold neon-glow transition-all"
               onClick={handleSubmit}
               disabled={loading || !input.trim()}
             >
@@ -82,7 +86,8 @@ URGÊNCIA: ${brief.urgency}
 
           {brief && (
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <Card className="glass-morphism border-primary/30">
+              <Card className="glass-morphism border-primary/30 overflow-hidden">
+                <div className="h-1 bg-gradient-to-r from-primary to-accent"></div>
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
@@ -116,8 +121,11 @@ URGÊNCIA: ${brief.urgency}
                     </div>
                   </div>
                   <div className="pt-6 border-t border-white/5">
-                    <Button className="w-full bg-white text-black font-black hover:bg-white/90" asChild>
-                      <a href="https://discord.gg/d7ajNWrc" target="_blank">Enviar para o Desenvolvedor</a>
+                    <Button className="w-full bg-white text-black font-black hover:bg-white/90 group" asChild>
+                      <a href="https://discord.gg/d7ajNWrc" target="_blank">
+                        Enviar para o Desenvolvedor
+                        <CheckCircle className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </a>
                     </Button>
                   </div>
                 </CardContent>

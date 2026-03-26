@@ -1,5 +1,6 @@
+
 import Link from "next/link";
-import { Rocket, Github, Twitter, Youtube } from "lucide-react";
+import { Github, Twitter, Youtube, Rocket } from "lucide-react";
 
 export function Footer() {
   return (
@@ -7,12 +8,12 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <Rocket className="text-white w-5 h-5" />
+            <Link href="/" className="flex items-center gap-3 mb-6 group">
+              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                <Rocket className="text-white w-6 h-6" />
               </div>
-              <span className="text-xl font-bold tracking-tighter font-headline text-white">
-                Dev<span className="text-primary">Lab</span>
+              <span className="text-xl font-bold tracking-tighter font-headline text-white group-hover:text-primary transition-colors">
+                DEV<span className="text-primary">LAB</span> STUDIO
               </span>
             </Link>
             <p className="text-muted-foreground max-w-sm mb-6">
@@ -37,7 +38,7 @@ export function Footer() {
               <li><Link href="/" className="text-muted-foreground hover:text-primary transition-colors text-sm">Início</Link></li>
               <li><Link href="/scripts" className="text-muted-foreground hover:text-primary transition-colors text-sm">Scripts</Link></li>
               <li><Link href="/planos" className="text-muted-foreground hover:text-primary transition-colors text-sm">Planos</Link></li>
-              <li><Link href="/servicos" className="text-muted-foreground hover:text-primary transition-colors text-sm">Serviços</Link></li>
+              <li><Link href="/hospedagem" className="text-muted-foreground hover:text-primary transition-colors text-sm">Hospedagem</Link></li>
             </ul>
           </div>
 
@@ -45,8 +46,8 @@ export function Footer() {
             <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Suporte</h4>
             <ul className="space-y-4">
               <li><a href="https://discord.gg/d7ajNWrc" className="text-muted-foreground hover:text-primary transition-colors text-sm">Discord Community</a></li>
+              <li><Link href="/termos" className="text-muted-foreground hover:text-primary transition-colors text-sm">Termos e Reembolso</Link></li>
               <li><Link href="/diferenciais" className="text-muted-foreground hover:text-primary transition-colors text-sm">Diferenciais</Link></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Status Server</a></li>
             </ul>
           </div>
         </div>
@@ -56,8 +57,8 @@ export function Footer() {
             © {new Date().getFullYear()} DevLab FiveM Studio. Todos os direitos reservados.
           </p>
           <div className="flex gap-6">
-            <Link href="#" className="text-muted-foreground hover:text-white transition-colors text-[10px] uppercase tracking-widest font-bold">Privacidade</Link>
-            <Link href="#" className="text-muted-foreground hover:text-white transition-colors text-[10px] uppercase tracking-widest font-bold">Termos</Link>
+            <Link href="/termos" className="text-muted-foreground hover:text-white transition-colors text-[10px] uppercase tracking-widest font-bold">Privacidade</Link>
+            <Link href="/termos" className="text-muted-foreground hover:text-white transition-colors text-[10px] uppercase tracking-widest font-bold">Termos</Link>
           </div>
         </div>
       </div>
